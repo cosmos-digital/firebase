@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 
+	"cloud.google.com/go/firestore"
 	fb "firebase.google.com/go"
 	firebase "github.com/cosmos-digital/firebase/internal"
 	"google.golang.org/api/option"
@@ -11,6 +12,7 @@ import (
 
 type Config = fb.Config
 type Options = option.ClientOption
+type DocumentRef = firestore.DocumentRef
 
 func NewFirestore(ctx context.Context, opts Options, config *Config) (*firebase.Firestore, error) {
 	connection := firebase.New(opts, config)
