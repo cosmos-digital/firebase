@@ -8,15 +8,12 @@ import (
 	"google.golang.org/api/option"
 )
 
-type Config = firebase.Config
-type Options = option.ClientOption
-
 type connection struct {
-	opts   Options
-	config *Config
+	opts   option.ClientOption
+	config *firebase.Config
 }
 
-func New(opts Options, config *Config) *connection {
+func New(opts option.ClientOption, config *firebase.Config) *connection {
 	return &connection{
 		opts:   opts,
 		config: config,
