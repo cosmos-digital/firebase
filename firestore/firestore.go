@@ -1,4 +1,4 @@
-package firebase
+package firestore
 
 import (
 	"context"
@@ -14,7 +14,7 @@ type Config = fb.Config
 type Options = option.ClientOption
 type DocumentRef = firestore.DocumentRef
 
-func NewFirestore(ctx context.Context, opts Options, config *Config) (*firebase.Firestore, error) {
+func New(ctx context.Context, opts Options, config *Config) (*firebase.Firestore, error) {
 	connection := firebase.New(opts, config)
 	instance, err := connection.Connect(ctx)
 	if err != nil {

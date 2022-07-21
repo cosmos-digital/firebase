@@ -6,7 +6,7 @@ import (
 	"os"
 	"path/filepath"
 
-	firebase "github.com/cosmos-digital/firebase"
+	"github.com/cosmos-digital/firebase/firestore"
 	"google.golang.org/api/option"
 )
 
@@ -18,12 +18,12 @@ func main() {
 	}
 	dir := filepath.Dir(wd)
 	opts := option.WithCredentialsFile(
-		fmt.Sprintf("%s/service-accounts/sample.json", dir),
+		fmt.Sprintf("%s/sample.json", dir),
 	)
-	config := &firebase.Config{
+	config := &firestore.Config{
 		ProjectID: "theta-trees-339100",
 	}
-	client, err := firebase.NewFirestore(ctx, opts, config)
+	client, err := firestore.New(ctx, opts, config)
 	if err != nil {
 		panic(err)
 	}
